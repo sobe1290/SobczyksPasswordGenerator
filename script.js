@@ -21,9 +21,6 @@ const randomNumbers = Math.floor(Math.random() * numbers.length);
 //console.log(upperCaseAlphabet[randomUpperCaseAlphabet]);
 //console.log(numbers[randomNumbers]);
 
-const randomCharactersArray = [`${randomSpecialCharacter}${randomLowerCaseAlphabet}${randomUpperCaseAlphabet}${randomNumbers}`]
-
-
 
 if (selectedCharacters = true) {
   selectedCharacters = randomSpecialCharacter;
