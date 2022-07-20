@@ -12,37 +12,29 @@ var selectedLower= true;
 var selectedUpper= true;
 var userSelectedLength= 15;
 
-}
 
   
-  var specialCharacters = [" ", "!" ,"#" ,"$" ,"%" ,"&" ,"'" ,"(" ,")" ,"*" ,"+" , "-",".", "/", ":",";", "<", "=", ">", "?", "@" ,"[", "]", "^", "_", "`", "{" ,"|" ,"}" ,"~"];
-  var lowerCaseAlphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-  var upperCaseAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-  var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  var growingString;
-  var randomSpecialCharacter = specialCharacters[Math.floor(Math.random() * specialCharacters.length)];    
-  var randomLowerCaseAlphabet = lowerCaseAlphabet[Math.floor(Math.random() * lowerCaseAlphabet.length)];
-  var randomUpperCaseAlphabet = upperCaseAlphabet[Math.floor(Math.random() * upperCaseAlphabet.length)];
-  var randomNumbers = numbers[Math.floor(Math.random() * numbers.length)];
+var specialCharacters = [" ", "!" ,"#" ,"$" ,"%" ,"&" ,"'" ,"(" ,")" ,"*" ,"+" , "-",".", "/", ":",";", "<", "=", ">", "?", "@" ,"[", "]", "^", "_", "`", "{" ,"|" ,"}" ,"~"];
+var lowerCaseAlphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var upperCaseAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+var growingString;
+var randomSpecialCharacter = specialCharacters[Math.floor(Math.random() * specialCharacters.length)];    
+var randomLowerCaseAlphabet = lowerCaseAlphabet[Math.floor(Math.random() * lowerCaseAlphabet.length)];
+var randomUpperCaseAlphabet = upperCaseAlphabet[Math.floor(Math.random() * upperCaseAlphabet.length)];
+var randomNumbers = numbers[Math.floor(Math.random() * numbers.length)];
 
-  console.log (growingString)
 
-function conditionalRandomPusher () {
-  if (selectedCharacters === true) {
-    growingString.push(specialCharacters[Math.floor(Math.random() * specialCharacters.length)]); 
+function generatePassword () {
+  if (selectedCharacters === true && selectedNumbers === true && selectedLower === true && selectedUpper === true) {
+    growingString = specialCharacters.concat(lowerCaseAlphabet, upperCaseAlphabet, numbers); 
   };
-  if (selectedNumbers === true) {
-    growingString.push(numbers[Math.floor(Math.random() * numbers.length)]);
-  };
-  if (selectedLower === true) {
-    growingString.push(lowerCaseAlphabet[Math.floor(Math.random() * lowerCaseAlphabet.length)]);
-  };
-  if (selectedUpper === true) {
-    growingString.push(numbers[Math.floor(Math.random() * numbers.length)]);
-  };
+  console.log(growingString)
+
 }
 
-function generatePassword () { 
+
+/*function generatePassword () { 
 
     function characterExpander() {
       for (growingString; growingString.length <8; i++){
@@ -54,12 +46,12 @@ function generatePassword () {
       };
       /*for (growingString.length; growingString.length >128; growingString.length--){
           growingString.push(selectedRandomPool)
-      }*/
+      }
     }
 
     characterExpander();
-    console.log(growingString);
-}
+    console.log(growingString);*/
+
 
 
 
@@ -72,7 +64,6 @@ function writePassword() {
 
 }
 
-writePassword()  //this was just put here to test in console
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
