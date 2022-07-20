@@ -12,13 +12,6 @@ var selectedLower= true;
 var selectedUpper= true;
 var userSelectedLength= 15;
 
-var slider = document.getElementById("myRange");
-var output = document.getElementById("selectedLength");
-output.innerHTML = slider.value; // Display the default slider value
-
-// Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-  output.innerHTML = this.value;
 }
 
   
@@ -26,7 +19,7 @@ slider.oninput = function() {
   var lowerCaseAlphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
   var upperCaseAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
   var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  var growingString ="";
+  var growingString;
   var randomSpecialCharacter = specialCharacters[Math.floor(Math.random() * specialCharacters.length)];    
   var randomLowerCaseAlphabet = lowerCaseAlphabet[Math.floor(Math.random() * lowerCaseAlphabet.length)];
   var randomUpperCaseAlphabet = upperCaseAlphabet[Math.floor(Math.random() * upperCaseAlphabet.length)];
@@ -34,33 +27,38 @@ slider.oninput = function() {
 
   console.log (growingString)
 
-function generatePassword () {
+function conditionalRandomPusher () {
   if (selectedCharacters === true) {
-    growingString.concat("", specialCharacters[Math.floor(Math.random() * specialCharacters.length)]); 
+    growingString.push(specialCharacters[Math.floor(Math.random() * specialCharacters.length)]); 
   };
   if (selectedNumbers === true) {
-    growingString.concat("", numbers[Math.floor(Math.random() * numbers.length)]);
+    growingString.push(numbers[Math.floor(Math.random() * numbers.length)]);
   };
   if (selectedLower === true) {
-    growingString.concat("", lowerCaseAlphabet[Math.floor(Math.random() * lowerCaseAlphabet.length)]);
+    growingString.push(lowerCaseAlphabet[Math.floor(Math.random() * lowerCaseAlphabet.length)]);
   };
   if (selectedUpper === true) {
-    growingString.concat("", numbers[Math.floor(Math.random() * numbers.length)]);
+    growingString.push(numbers[Math.floor(Math.random() * numbers.length)]);
   };
+}
+
+function generatePassword () { 
 
     function characterExpander() {
-      for (growingString; growingString.length <8; growingString++){
+      for (growingString; growingString.length <8; i++){
+        conditionalRandomPusher();
       };
 
-      for (growingString; growingString.length < userSelectedLength; growingString++){
+      for (growingString; growingString.length < userSelectedLength; i++){
+        conditionalRandomPusher();
       };
       /*for (growingString.length; growingString.length >128; growingString.length--){
           growingString.push(selectedRandomPool)
       }*/
     }
 
-  characterExpander();
-
+    characterExpander();
+    console.log(growingString);
 }
 
 
