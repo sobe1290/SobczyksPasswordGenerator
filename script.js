@@ -6,9 +6,9 @@ var selectedUpper = document.querySelector("#upperCase");
 var userSelectedLength = document.querySelector("#length");*/
 var generateBtn = document.querySelector("#generate");
 
-var selectedCharacters = true;
+var selectedCharacters = false;
 var selectedNumbers = true;
-var selectedLower= true;
+var selectedLower= false;
 var selectedUpper= true;
 var userSelectedLength= 15;
 
@@ -29,8 +29,50 @@ function generatePassword () {
   if (selectedCharacters === true && selectedNumbers === true && selectedLower === true && selectedUpper === true) {
     growingString = specialCharacters.concat(lowerCaseAlphabet, upperCaseAlphabet, numbers); 
   };
-  console.log(growingString)
+  if (selectedCharacters === true && selectedNumbers === true && selectedLower === true && selectedUpper === false) {
+    growingString = specialCharacters.concat(lowerCaseAlphabet, numbers); 
+  };
+  if (selectedCharacters === true && selectedNumbers === true && selectedLower === false && selectedUpper === true) {
+    growingString = specialCharacters.concat(upperCaseAlphabet, numbers); 
+  }
+  if (selectedCharacters === true && selectedNumbers === false && selectedLower === true && selectedUpper === true) {
+    growingString = specialCharacters.concat(upperCaseAlphabet, lowerCaseAlphabet); 
+  };
+  if (selectedCharacters === true && selectedNumbers === true && selectedLower === false && selectedUpper === false) {
+    growingString = specialCharacters.concat(numbers); 
+  }
+  if (selectedCharacters === true && selectedNumbers === false && selectedLower === true && selectedUpper === false) {
+    growingString = specialCharacters.concat(lowerCaseAlphabet); 
+  };
+  if (selectedCharacters === true && selectedNumbers === false && selectedLower === false && selectedUpper === true) {
+    growingString = specialCharacters.concat(upperCaseAlphabet); 
+  };
+  if (selectedCharacters === true && selectedNumbers === false && selectedLower === false && selectedUpper === false) {
+    growingString = specialCharacters; 
+  };
+  if (selectedCharacters === false && selectedNumbers === true && selectedLower === true && selectedUpper === true) {
+    growingString = numbers.concat(lowerCaseAlphabet, upperCaseAlphabet);
+  }
+  if (selectedCharacters === false && selectedNumbers === true && selectedLower === false && selectedUpper === true) {
+    growingString = numbers.concat(upperCaseAlphabet);
+  }
+  if (selectedCharacters === false && selectedNumbers === true && selectedLower === true && selectedUpper === false) {
+    growingString = numbers.concat(lowerCaseAlphabet);
+  }
+  if (selectedCharacters === false && selectedNumbers === true && selectedLower === false && selectedUpper === false) {
+    growingString = numbers; 
+  };
+  if (selectedCharacters === false && selectedNumbers === false && selectedLower === true && selectedUpper === true) {
+    growingString = lowerCaseAlphabet.concat(upperCaseAlphabet); 
+  };
+  if (selectedCharacters === false && selectedNumbers === false && selectedLower === true && selectedUpper === false) {
+    growingString = lowerCaseAlphabet; 
+  };
+  if (selectedCharacters === false && selectedNumbers === false && selectedLower === false && selectedUpper === true) {
+    growingString = upperCaseAlphabet; 
+  };
 
+  console.log(growingString)
 }
 
 
