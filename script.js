@@ -10,7 +10,7 @@ var selectedCharacters = true;
 var selectedNumbers = true;
 var selectedLower= true;
 var selectedUpper= true;
-var userSelectedLength = 15;
+var userSelectedLength= 15;
 
 var slider = document.getElementById("myRange");
 var output = document.getElementById("selectedLength");
