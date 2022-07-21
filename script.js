@@ -22,6 +22,12 @@ var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var growingString;
 var finalPassword =[];
 
+var specialPrompt;
+var lowerPrompt;
+var upperPrompt;
+var numberPrompt;
+var lengthPrompt;
+
 
 
 function generatePassword () {
@@ -32,82 +38,78 @@ function generatePassword () {
     } else if (userSelectedLength <8 || userSelectedLength >128) {
       userSelectedLength = parseInt(prompt("You must enter a number between 8 and 128"));
     } 
-
-    console.log(userSelectedLength)
     
-    specialCharacters = confirm("Do you want to use special characters?");
-      if (!specialCharacters) {
-        specialCharacters = false;
-      } else if (specialCharacters) {
-        specialCharacters = true;
+    specialPrompt = confirm("Do you want to use special characters?");
+      if (!specialPrompt) {
+        specialPrompt = false;
+      } else if (specialPrompt) {
+        specialPrompt = true;
       }
       
-    lowerCaseAlphabet = confirm("Do you want to use lower case letters?");
-      if (!lowerCaseAlphabet) {
-        lowerCaseAlphabet = false;
-      } else if (lowerCaseAlphabet) {
-        lowerCaseAlphabet = true;
+    lowerPrompt = confirm("Do you want to use lower case letters?");
+      if (!lowerPrompt) {
+        lowerPrompt = false;
+      } else if (lowerPrompt) {
+        lowerPrompt = true;
       }
 
-
-    upperCaseAlphabet = confirm("Do you want upper case letters?");
-      if (!upperCaseAlphabet) {
-        upperCaseAlphabet = false;
-      } else if (upperCaseAlphabet) {
-        upperCaseAlphabet = true;
+    upperPrompt = confirm("Do you want upper case letters?");
+      if (!upperPrompt) {
+        uupperPrompt = false;
+      } else if (upperPrompt) {
+        upperPrompt = true;
       }
 
-    numbers = confirm("do you want numbers");
-      if (!numbers) {
-        numbers= false;
-      } else if (numbers) {
-        numbers = true;
+    numberPrompt = confirm("do you want numbers");
+      if (!numberPrompt) {
+        numberPrompt= false;
+      } else if (numberPrompt) {
+        numberPrompt = true;
       }
-  
 
-  if (selectedCharacters === true && selectedNumbers === true && selectedLower === true && selectedUpper === true) {
+  if (specialPrompt === true && numberPrompt === true && lowerPrompt === true && upperPrompt === true) {
     growingString = specialCharacters.concat(lowerCaseAlphabet, upperCaseAlphabet, numbers); 
   };
-  if (selectedCharacters === true && selectedNumbers === true && selectedLower === true && selectedUpper === false) {
+  if (specialPrompt === true && numberPrompt === true && lowerPrompt === true && upperPrompt === false) {
     growingString = specialCharacters.concat(lowerCaseAlphabet, numbers); 
   };
-  if (selectedCharacters === true && selectedNumbers === true && selectedLower === false && selectedUpper === true) {
+  if (specialPrompt === true && numberPrompt === true && lowerPrompt === false && upperPrompt === true) {
     growingString = specialCharacters.concat(upperCaseAlphabet, numbers); 
   }
-  if (selectedCharacters === true && selectedNumbers === false && selectedLower === true && selectedUpper === true) {
+  if (specialPrompt === true && numberPrompt === false && lowerPrompt === true && upperPrompt === true) {
     growingString = specialCharacters.concat(upperCaseAlphabet, lowerCaseAlphabet); 
   };
-  if (selectedCharacters === true && selectedNumbers === true && selectedLower === false && selectedUpper === false) {
+  if (specialPrompt === true && numberPrompt === true && lowerPrompt === false && upperPrompt === false) {
     growingString = specialCharacters.concat(numbers); 
   }
-  if (selectedCharacters === true && selectedNumbers === false && selectedLower === true && selectedUpper === false) {
+  if (specialPrompt === true && numberPrompt === false && lowerPrompt === true && upperPrompt === false) {
     growingString = specialCharacters.concat(lowerCaseAlphabet); 
   };
-  if (selectedCharacters === true && selectedNumbers === false && selectedLower === false && selectedUpper === true) {
+  if (specialPrompt === true && numberPrompt === false && lowerPrompt === false && upperPrompt === true) {
     growingString = specialCharacters.concat(upperCaseAlphabet); 
   };
-  if (selectedCharacters === true && selectedNumbers === false && selectedLower === false && selectedUpper === false) {
+  if (specialPrompt === true && numberPrompt === false && lowerPrompt === false && upperPrompt === false) {
     growingString = specialCharacters; 
   };
-  if (selectedCharacters === false && selectedNumbers === true && selectedLower === true && selectedUpper === true) {
+  if (specialPrompt === false && numberPrompt === true && lowerPrompt === true && upperPrompt === true) {
     growingString = numbers.concat(lowerCaseAlphabet, upperCaseAlphabet);
   }
-  if (selectedCharacters === false && selectedNumbers === true && selectedLower === false && selectedUpper === true) {
+  if (specialPrompt === false && numberPrompt === true && lowerPrompt === false && upperPrompt === true) {
     growingString = numbers.concat(upperCaseAlphabet);
   }
-  if (selectedCharacters === false && selectedNumbers === true && selectedLower === true && selectedUpper === false) {
+  if (specialPrompt === false && numberPrompt === true && lowerPrompt === true && upperPrompt === false) {
     growingString = numbers.concat(lowerCaseAlphabet);
   }
-  if (selectedCharacters === false && selectedNumbers === true && selectedLower === false && selectedUpper === false) {
+  if (specialPrompt === false && numberPrompt === true && lowerPrompt === false && upperPrompt === false) {
     growingString = numbers; 
   };
-  if (selectedCharacters === false && selectedNumbers === false && selectedLower === true && selectedUpper === true) {
+  if (specialPrompt === false && numberPrompt === false && lowerPrompt === true && upperPrompt === true) {
     growingString = lowerCaseAlphabet.concat(upperCaseAlphabet); 
   };
-  if (selectedCharacters === false && selectedNumbers === false && selectedLower === true && selectedUpper === false) {
+  if (specialPrompt === false && numberPrompt === false && lowerPrompt === true && upperPrompt === false) {
     growingString = lowerCaseAlphabet; 
   };
-  if (selectedCharacters === false && selectedNumbers === false && selectedLower === false && selectedUpper === true) {
+  if (specialPrompt === false && numberPrompt === false && lowerPrompt === false && upperPrompt === true) {
     growingString = upperCaseAlphabet; 
   };
 
