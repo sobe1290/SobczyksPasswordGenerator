@@ -37,7 +37,7 @@ function generatePassword () {
       alert("You must enter a number between 8 and 128");
     } else if (userSelectedLength <8 || userSelectedLength >128) {
       userSelectedLength = parseInt(prompt("You must enter a number between 8 and 128"));
-    } 
+    } // while not user selected length, forces user to enter var.
     
     specialPrompt = confirm("Do you want to use special characters?");
       if (!specialPrompt) {
