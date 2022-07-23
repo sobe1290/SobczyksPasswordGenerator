@@ -1,43 +1,25 @@
-// These are the references to the prompt selectors for password length
-/*var selectedCharacters = document.querySelector("#specialCharacter");
-var selectedNumbers = document.querySelector("#numbers");
-var selectedLower = document.querySelector("#lowerCase");
-var selectedUpper = document.querySelector("#upperCase");
-var userSelectedLength = document.querySelector("#length");*/
 var generateBtn = document.querySelector("#generate");
 var tryAgainBtn = document.querySelector("#tryAgain");
 
-var selectedCharacters;
-var selectedNumbers;
-var selectedLower;
-var selectedUpper;
-var userSelectedLength;
+function generatePassword () {
 
-
-  
+var userSelectedLength;  
 var specialCharacters = [" ", "!" ,"#" ,"$" ,"%" ,"&" ,"'" ,"(" ,")" ,"*" ,"+" , "-",".", "/", ":",";", "<", "=", ">", "?", "@" ,"[", "]", "^", "_", "`", "{" ,"|" ,"}" ,"~"];
 var lowerCaseAlphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var upperCaseAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var growingString;
 var finalPassword =[];
-
 var specialPrompt;
 var lowerPrompt;
 var upperPrompt;
 var numberPrompt;
-var lengthPrompt;
 
-
-
-function generatePassword () {
 
   userSelectedLength = parseInt(prompt("Please enter the length of your desired password. Enter a number between 8 and 128 to continue."));
-    if (!userSelectedLength) {
-      alert("You must enter a number between 8 and 128");
-    } else if (userSelectedLength <8 || userSelectedLength >128) {
+    while ((userSelectedLength <8 || userSelectedLength >128) || !userSelectedLength) {
       userSelectedLength = parseInt(prompt("You must enter a number between 8 and 128"));
-    } // while not user selected length, forces user to enter var.
+    }
     
     specialPrompt = confirm("Do you want to use special characters?");
       if (!specialPrompt) {
