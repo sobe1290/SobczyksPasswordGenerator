@@ -5,6 +5,8 @@ This is a password generator that will create a password between 8 and 128 chara
 
 Below is a screenshot of what the page looks like:
 
+![screenshot of page with example password](https://user-images.githubusercontent.com/26222624/180590325-28db9325-c90b-4c20-86b2-47dec34df084.png)
+
 
 
 The password generator can also be viewed at a Github live page located at:
