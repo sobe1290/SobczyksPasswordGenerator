@@ -11,6 +11,8 @@ Below is a screenshot of what the page looks like:
 
 The password generator can also be viewed at a Github live page located at:
 
+https://sobe1290.github.io/SobczyksPasswordGenerator/
+
 
 Below are all of the possible characters used in a password:
 
